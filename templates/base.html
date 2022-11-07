@@ -1,0 +1,27 @@
+{% extends 'bootstrap/base.html' %}
+
+{% block styles %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+{% endblock %}
+
+{% block scripts %}
+    {{ super () }}
+    <script src="https://kit.fontawesome.com/d48c10707a.js" crossorigin="anonymous"></script>
+{% endblock %}
+
+{% block content %}
+
+    {% block main %}
+
+    {% endblock %}
+
+    {% block footer %}
+        <div>
+            <footer>
+                <p>Copyright © Kevin Pham {{ year }}</p>
+            </footer>
+        </div>
+    {% endblock %}
+
+{% endblock %}
