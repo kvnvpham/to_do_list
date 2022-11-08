@@ -5,4 +5,58 @@
 
 {% block main %}
 
+    <div class="task-head">
+        <h3>Add a task</h3>
+        <div class="row">
+            <div class="col-lg-6 col-md-6">
+                {{ wtf.quick_form(form, novalidate=True, button_map={'submit': 'info'}) }}
+            </div>
+        </div>
+    </div>
+
+    <div class="task-list">
+        <h3>To-Do:</h3>
+        <div class="row">
+            <div class="col-lg-6 col-md-6">
+                <ul class="list-group list-group-flush ">
+                    {% for task in all_tasks.to_dos %}
+                    <li class="list-group-item list-bg">
+                        <a href="{{ url_for('mark_check', user_id=user_id, task_id=task.id) }}">
+                            <i class="fa-regular fa-circle icon"></i>
+                        </a> {{ task.to_do }}
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="task-list completed">
+        <h3>Completed:</h3>
+        <div class="row">
+            <div class="col-lg-6 col-md-6">
+                <ul class="list-group list-group-flush">
+
+                    {% for item in all_tasks.completed_to_dos %}
+                    <li class="list-group-item list-bg">
+                        <div class="row text-muted">
+                            <div class="col-lg-11 col-md-11 col-sm-11 col-11">
+                                <a href="{{ url_for('mark_uncheck', user_id=user_id, item_id=item.id) }}">
+                                    <i class="fa-regular fa-circle-check icon"></i>
+                                </a> {{ item.completed_task }}
+                            </div>
+                            <div class="col-lg-1 col-md-1 col-sm-1 col-1 x-icon">
+                                <a href="{{ url_for('clear_task', user_id=user_id, item_id=item.id) }}">
+                                <i class="fa-regular fa-circle-xmark icon"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                    {% endfor %}
+
+                </ul>
+            </div>
+        </div>
+    </div>
+
 {% endblock %}

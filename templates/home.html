@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block title %}New To-Do List{% endblock %}
+
+{% block main %}
+
+    <div class="main">
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <p>{{ message }}</p>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        {% if current_user.is_authenticated %}
+        <h1>Hello {{ current_user.name }}!</h1>
+        {% endif %}
+
+        <h3>Add Items To Your To-Do List</h3>
+
+        <div class="row">
+            <div class="col-lg-4 col-md-4">
+                {{ wtf.quick_form(form, novalidate=True, button_map={'submit': 'info'}) }}
+            </div>
+        </div>
+
+    </div>
+
+{% endblock %}

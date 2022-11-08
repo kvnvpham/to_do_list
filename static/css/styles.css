@@ -1,0 +1,94 @@
+/* Base */
+
+body {
+    background-color: #395B64;
+    color: #A5C9CA;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.nav-style {
+    background-color: #2C3333;
+}
+
+.brand-style {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+    color: #E7F6F2;
+    padding-left: 1%;
+}
+
+.links {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2rem;
+    color: #E7F6F2;
+}
+
+h1, h2, h3 {
+    font-family: 'Open Sans', sans-serif;
+    padding-bottom: 1%
+}
+
+input[type="text"] {
+    background-color: #E7F6F2;
+    color: #395B64;
+}
+
+#submit {
+    margin-top: 1.5%;
+}
+
+a, a:hover {
+    text-decoration: none;
+}
+
+.copyright {
+    padding: 3% 0;
+}
+
+/* Index */
+
+.welcome {
+    margin: 14% 0 16%;
+    text-align: center;
+}
+
+.login-btn {
+    padding-left: 1%;
+    padding-right: 1%;
+}
+
+/* Register and Home */
+
+.main {
+    margin: 1% 1% 22%;
+}
+
+/* To Do */
+
+.task-head {
+    padding: 1% 1% 2%;
+}
+
+.task-list {
+    padding: 2% 1%;
+}
+
+.list-bg {
+    background-color: #E7F6F2;
+    color: #395B64;
+    font-size: 1.2rem;
+}
+
+.icon {
+    color: #A5C9CA;
+}
+
+.icon:hover {
+    color: #395B64;
+}
+
+x-icon {
+    text-align: end;
+}
+
+

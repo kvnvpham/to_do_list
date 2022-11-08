@@ -1,8 +1,16 @@
 {% extends 'base.html' %}
-{% import 'bootstrap/wtf.html' as wtf %}
 
-{% block title %}New To DO List{% endblock %}
+{% block title %}Welcome%{% endblock %}
 
 {% block main %}
+    <div class="welcome">
+        <h1>Welcome!</h1>
 
+        <h3>Make Your Own To Do List</h3>
+
+        {% if not current_user.is_authenticated %}
+        <a class="btn btn-info login-btn" href="{{ url_for('login') }}">Login</a>
+        <a class="btn btn-info" href="{{ url_for('register') }}">Register</a>
+        {% endif %}
+    </div>
 {% endblock %}

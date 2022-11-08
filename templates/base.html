@@ -1,27 +1,69 @@
 {% extends 'bootstrap/base.html' %}
 
 {% block styles %}
-    {{ super() }}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
 {% endblock %}
 
 {% block scripts %}
-    {{ super () }}
+    {{ super() }}
     <script src="https://kit.fontawesome.com/d48c10707a.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" ></script>
+{% endblock %}
+
+{% block navbar %}
+    <nav class="navbar navbar-expand-lg nav-style">
+        <div class="container-fluid">
+            <a class="navbar-brand brand-style" href="{{ url_for('welcome') }}">To Do List</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#ToDoNav"
+                    aria-controls="ToDoNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="ToDoNav">
+                <ul class="navbar-nav ms-auto">
+                    {% if current_user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link links" href="{{ url_for('home', user_id=current_user.id) }}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link links" aria-current="page" href="{{ url_for('get_all_tasks', user_id=current_user.id) }}">
+                            Tasks
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link links" href="{{ url_for('logout', user_id=current_user.id) }}">Logout</a>
+                    </li>
+                    {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link links" href="{{ url_for('login') }}">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link links" href="{{ url_for('register') }}">Register</a>
+                    </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </nav>
 {% endblock %}
 
 {% block content %}
+    <div class="container-fluid">
 
     {% block main %}
 
     {% endblock %}
 
     {% block footer %}
-        <div>
+        <div class="copyright">
             <footer>
-                <p>Copyright © Kevin Pham {{ year }}</p>
+                <p class="text-muted text-center">Copyright © Kevin Pham {{ year }}</p>
             </footer>
         </div>
     {% endblock %}
+
+    </div>
 
 {% endblock %}
