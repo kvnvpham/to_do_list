@@ -43,6 +43,20 @@ a, a:hover {
 
 .copyright {
     padding: 3% 0;
+    text-align: center;
+}
+
+.socials {
+    padding: 0 2%;
+    color: #A5C9CA;
+}
+
+.socials:hover{
+    color: #E7F6F2;
+}
+
+.copyright-text {
+    padding-top: 2%;
 }
 
 /* Index */

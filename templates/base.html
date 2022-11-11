@@ -1,10 +1,15 @@
 {% extends 'bootstrap/base.html' %}
 
 {% block styles %}
+    <!-- CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 
+    <!-- FontAwesome -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- LineIcon -->
+    <link href="https://cdn.lineicons.com/3.0/lineicons.css" rel="stylesheet">
 {% endblock %}
 
 {% block scripts %}
@@ -59,7 +64,10 @@
     {% block footer %}
         <div class="copyright">
             <footer>
-                <p class="text-muted text-center">Copyright © Kevin Pham {{ year }}</p>
+                <a class="socials" href="https://github.com/kvnvpham"><i class="lni lni-github-original"></i></a>
+                <a class="socials" href="https://www.linkedin.com/in/kvvpham"><i class="lni lni-linkedin-original"></i></a>
+                <a class="socials" href="mailto:kvnvpham@gmail.com"><i class="lni lni-envelope"></i></a>
+                <p class="text-muted copyright-text">Copyright © Kevin Pham {{ year }}</p>
             </footer>
         </div>
     {% endblock %}
